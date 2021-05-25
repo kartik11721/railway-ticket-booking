@@ -1,24 +1,24 @@
 class Train:
     company = 'Indian Railway'
-    seatNos = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    booked = []
     i = 0
 
-    def __init__(self, name, fare):
+    def __init__(self, name, fare,booked,seats):
             self.name = name
             self.fare = fare
+            self.seats = seats
+            self.booked = booked
 
     def booking(self):
-        if len(self.seatNos) > 0:
-            print(f'Yor Seat No. {self.seatNos[-1]} has been booked')
-            (self.booked).append((self.seatNos).pop(-1))
+        if len(self.seats) > 0:
+            print(f'Yor Seat No. {self.seats[-1]} has been booked')
+            (self.booked).append((self.seats).pop(-1))
             print(self.booked)
-            print(self.seatNos)
+            print(self.seats)
         else: print('No Seat Left')
 
     def getInfo(self):
         print('*****************')
-        print(f'----{self.company}----\nTrain : {self.name}\nVacant Seats : {len(self.seatNos)}\nFare : {self.fare} Rs.')
+        print(f'----{self.company}----\nTrain : {self.name}\nVacant Seats : {len(self.seats)}\nFare : {self.fare} Rs.')
         print('*****************')
 
     def myTickets(self):
@@ -34,21 +34,15 @@ class Train:
                     if(a == self.i):
                         print('Your Ticket Has Been Canceled')
                         self.booked.remove(a)
-                        self.seatNos.append(a)
-                        self.seatNos.sort()
+                        self.seats.append(a)
+                        self.seats.sort()
         else: print('No Ticket To Be Cancelled')
 
 
-t1 = Train('Rajdhani Express 0412',25)
+t1 = Train('Rajdhani Express 0412',25,[],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+t2 = Train('Intracity 0712',10,[],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27])
+t3 = Train('Tatkal 0107',20,[],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 
-t1.myTickets()
-t1.getInfo()
-t1.booking()
-t1.booking()
-t1.booking()
-t1.booking()
-t1.cancel()
-t1.cancel()
-t1.getInfo()
-t1.myTickets()
-print(t1.seatNos)
+t3.getInfo()
+t3.booking()
+t3.myTickets()
